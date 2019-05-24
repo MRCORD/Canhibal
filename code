@@ -1,0 +1,120 @@
+CREATE TABLE Cliente (
+ID_cliente int NOT NULL,
+nombre_cliente varchar(100) NOT NULL,
+email varchar(100) UNIQUE,
+telefono varchar(9) UNIQUE,
+direccion varchar(100) NOT NULL,
+ciudad varchar(100) NOT NULL);
+
+CREATE TABLE Orden(
+ID_orden int NOT NULL,
+ID_cliente int NOT NULL,
+fecha datetime NOT NULL DEFAULT GETDATE());
+
+CREATE TABLE Incluye(
+ID_orden int NOT NULL,
+ID_producto int NOT NULL,
+cantidad int NOT NULL,
+monto_total float NOT NULL);
+
+CREATE TABLE Producto(
+ID_producto int NOT NULL,
+nombre_producto varchar(100) NOT NULL,
+volumen float NOT NULL,
+precio float NOT NULL,
+descripcion varchar(100) NOT NULL,
+stock int NOT NULL);
+
+CREATE TABLE Convierte(
+ID_producto int NOT NULL,
+ID_insumo int NOT NULL,
+cantidad int NOT NULL);
+
+CREATE TABLE Insumo(
+ID_insumo int NOT NULL,
+nombre_insumo varchar(100) NOT NULL,
+ID_proveedor int NOT NULL);
+
+
+CREATE TABLE Proveedor(
+ID_proveedor int NOT NULL,
+email varchar(100) UNIQUE,
+telefono varchar(9) UNIQUE,
+ciudad varchar(100) UNIQUE,
+direccion varchar(100) NOT NULL,
+razon_social varchar(100) NOT NULL,
+nombre_representante varchar(100) NOT NULL,
+ciudad varchar(100) NOT NULL);
+
+/* pK * /
+ALTER TABLE Cliente ADD CONSTRAINT PK_cliente PRIMARY KEY(ID_cliente);
+ALTER TABLE Orden ADD CONSTRAINT PK_orden PRIMARY KEY(ID_orden);
+
+ALTER TABLE Producto ADD CONSTRAINT PK_producto PRIMARY KEY(ID_producto);
+
+ALTER TABLE Insumo ADD CONSTRAINT PK_insumo PRIMARY KEY(ID_insumo);
+ALTER TABLE Proveedor ADD CONSTRAINT PK_proveedor PRIMARY KEY(ID_proveedor);
+
+/*Relaciones*/
+ALTER TABLE Orden ADD CONSTRAINT FK_orden_cliente FOREIGN KEY (ID_cliente) REFERENCES Cliente (ID_cliente);
+ALTER TABLE Incluye ADD CONSTRAINT FK_incluye_orden FOREIGN KEY (ID_orden) REFERENCES Orden (ID_orden);
+ALTER TABLE Incluye ADD CONSTRAINT FK_incluye_producto FOREIGN KEY (ID_producto) REFERENCES Producto (ID_producto);
+ALTER TABLE Convierte ADD CONSTRAINT FK_convierte_producto FOREIGN KEY (ID_producto) REFERENCES Producto (ID_producto);
+ALTER TABLE Convierte ADD CONSTRAINT FK_convierte_insumo FOREIGN KEY (ID_insumo) REFERENCES Insumo (ID_insumo);
+ALTER TABLE Insumo ADD CONSTRAINT FK_insumo_proveedor FOREIGN KEY (ID_proveedor) REFERENCES Proveedor (ID_proveedor);
+
+/*Data*/
+
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Order(ID_orden, ID_cliente, fecha)
+
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock)
+
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(1, 'Cañazo', 1);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(2, 'Camu Camu', 2);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(3, 'Aguaymanto', 3);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(4, 'Chirimoya', 4);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(5, 'Sauco', 5);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(6, 'Lucuma', 6);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(7, 'Granadilla', 7);
+
+
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(1, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(2, '201709501@post.au.dk', '988888888', 'Lima', 'Av. Salaverry 2222', 'Camu Camu del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(3, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(4, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(5, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(6, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(7, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
