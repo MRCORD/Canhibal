@@ -9,13 +9,15 @@ ciudad varchar(100) NOT NULL);
 CREATE TABLE Orden(
 ID_orden int NOT NULL,
 ID_cliente int NOT NULL,
-fecha datetime NOT NULL DEFAULT GETDATE());
+fecha datetime NOT NULL DEFAULT GETDATE(),
+importe float NOT NULL);
 
 CREATE TABLE Incluye(
+ID_incluye int NOT NULL,
 ID_orden int NOT NULL,
 ID_producto int NOT NULL,
 cantidad int NOT NULL,
-monto_total float NOT NULL);
+monto float NOT NULL);
 
 CREATE TABLE Producto(
 ID_producto int NOT NULL,
@@ -26,6 +28,7 @@ descripcion varchar(100) NOT NULL,
 stock int NOT NULL);
 
 CREATE TABLE Convierte(
+ID_convierte int NOT NULL,
 ID_producto int NOT NULL,
 ID_insumo int NOT NULL,
 cantidad int NOT NULL);
@@ -33,7 +36,9 @@ cantidad int NOT NULL);
 CREATE TABLE Insumo(
 ID_insumo int NOT NULL,
 nombre_insumo varchar(100) NOT NULL,
-ID_proveedor int NOT NULL);
+ID_proveedor int NOT NULL,
+stock_insumo float NOT NULL,
+medida_unidad varchar(10) NOT NULL);
 
 CREATE TABLE Provee(
 ID_provee int NOT NULL,
@@ -51,13 +56,15 @@ razon_social varchar(100) NOT NULL,
 nombre_representante varchar(100) NOT NULL,
 ciudad varchar(100) NOT NULL);
 
-/* pK * /
+/*PRIMARY keys*/
+
 ALTER TABLE Cliente ADD CONSTRAINT PK_cliente PRIMARY KEY(ID_cliente);
 ALTER TABLE Orden ADD CONSTRAINT PK_orden PRIMARY KEY(ID_orden);
-
+ALTER TABLE Incluye ADD CONSTRAINT PK_incluye PRIMARY KEY(ID_incluye);
 ALTER TABLE Producto ADD CONSTRAINT PK_producto PRIMARY KEY(ID_producto);
-
+ALTER TABLE Convierte ADD CONSTRAINT PK_convierte  PRIMARY KEY(ID_convierte);
 ALTER TABLE Insumo ADD CONSTRAINT PK_insumo PRIMARY KEY(ID_insumo);
+ALTER TABLE Provee ADD CONSTRAINT PK_provee PRIMARY KEY(ID_provee);
 ALTER TABLE Proveedor ADD CONSTRAINT PK_proveedor PRIMARY KEY(ID_proveedor);
 
 /*Relaciones*/
@@ -66,32 +73,41 @@ ALTER TABLE Incluye ADD CONSTRAINT FK_incluye_orden FOREIGN KEY (ID_orden) REFER
 ALTER TABLE Incluye ADD CONSTRAINT FK_incluye_producto FOREIGN KEY (ID_producto) REFERENCES Producto (ID_producto);
 ALTER TABLE Convierte ADD CONSTRAINT FK_convierte_producto FOREIGN KEY (ID_producto) REFERENCES Producto (ID_producto);
 ALTER TABLE Convierte ADD CONSTRAINT FK_convierte_insumo FOREIGN KEY (ID_insumo) REFERENCES Insumo (ID_insumo);
-ALTER TABLE Insumo ADD CONSTRAINT FK_insumo_proveedor FOREIGN KEY (ID_proveedor) REFERENCES Proveedor (ID_proveedor);
+ALTER TABLE Provee ADD CONSTRAINT FK_provee_insumo FOREIGN KEY (ID_insumo) REFERENCES Insumo (ID_insumo);
+ALTER TABLE Provee ADD CONSTRAINT FK_provee_proveedor FOREIGN KEY (ID_proveedor) REFERENCES Proveedor (ID_proveedor);
+
 
 /*Data*/
 
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(1, 'Nikita Megan Zurowski', 'nikitazurowski@cmail.carleton.ca', '991111111', 'Jr. Sanchez Cerro 1111', 'Lima')
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(2, 'Sydney Mariah Kennedy', 'sydneykennedy@cmail.carleton.ca', '992222222', 'Jr. Sanchez Cerro 2222', 'Lima')
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(3, 'Tycho Pulles', 't.pulles@student.maastrichtuniversity.nl', '99333333', 'Jr. Sanchez Cerro 3333', 'Lima')
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(4, 'Bowien Dusseljee', 'bowien99@gmail.com', '994444444', 'Jr. Sanchez Cerro 4444', 'Lima')
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(5, 'Kaï Fraussen', 'k.fraussen@student.maastrichtuniversity.nl', '995555555', 'Jr. Sanchez Cerro 5555', 'Lima')
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(6, 'Morris Roman Colenbrander', '16088328@student.hhs.nl', '997777777', 'Jr. Sanchez Cerro 6666', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(1, 'Nikita Megan Zurowski', 'nikitazurowski@cmail.carleton.ca', '991111111', 'Jr. Sanchez Cerro 1111', 'Lima');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(2, 'Sydney Mariah Kennedy', 'sydneykennedy@cmail.carleton.ca', '992222222', 'Jr. Sanchez Cerro 2222', 'Lima');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(3, 'Tycho Pulles', 't.pulles@student.maastrichtuniversity.nl', '99333333', 'Jr. Sanchez Cerro 3333', 'Lima');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(4, 'Bowien Dusseljee', 'bowien99@gmail.com', '994444444', 'Jr. Sanchez Cerro 4444', 'Lima');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(5, 'Kaï Fraussen', 'k.fraussen@student.maastrichtuniversity.nl', '995555555', 'Jr. Sanchez Cerro 5555', 'Lima');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(6, 'Morris Roman Colenbrander', '16088328@student.hhs.nl', '997777777', 'Jr. Sanchez Cerro 6666', 'Lima');
 
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
-INSERT INTO Order(ID_orden, ID_cliente, fecha)
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(1, 1, 25/05/19, 39);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(2, 2, 25/05/19, 91.6);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(3, 3, 25/05/19, 290);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(4, 4, 25/05/19, 130);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(5, 5, 25/05/19, 325);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(6, 1, 25/05/19, 1950);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(7, 6, 25/05/19, 91.6);
 
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
-INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(1, 1, 1, 5, 39)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(2, 2, 6, 2, 45.8)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(3, 2, 4, 2, 45.8)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(4, 3, 10, 10, 290)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(5, 4, 11, 20, 130)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(6, 5, 1, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(7, 6, 1, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(8, 6, 3, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(9, 6, 5, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(10, 6, 7, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(11, 6, 9, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(12, 6, 11, 50, 325)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(13, 7, 8, 4, 91.6)
+
 
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Canibal Camu Camu 275ml', 275, 6.50, 'Canazo macerado de Camu Camu de 275ml', 100);
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(2, 'Canibal Camu Camu 700ml', 700, 22.9, 'Canazo macerado de Camu Camu de 700ml', 50);
