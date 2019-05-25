@@ -35,6 +35,11 @@ ID_insumo int NOT NULL,
 nombre_insumo varchar(100) NOT NULL,
 ID_proveedor int NOT NULL);
 
+CREATE TABLE Provee(
+ID_provee int NOT NULL,
+ID_insumo int NOT NULL,
+ID_proveedor int NOT NULL);
+
 
 CREATE TABLE Proveedor(
 ID_proveedor int NOT NULL,
@@ -65,12 +70,12 @@ ALTER TABLE Insumo ADD CONSTRAINT FK_insumo_proveedor FOREIGN KEY (ID_proveedor)
 
 /*Data*/
 
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
-INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad)
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(1, 'Nikita Megan Zurowski', 'nikitazurowski@cmail.carleton.ca', '991111111', 'Jr. Sanchez Cerro 1111', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(2, 'Sydney Mariah Kennedy', 'sydneykennedy@cmail.carleton.ca', '992222222', 'Jr. Sanchez Cerro 2222', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(3, 'Tycho Pulles', 't.pulles@student.maastrichtuniversity.nl', '99333333', 'Jr. Sanchez Cerro 3333', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(4, 'Bowien Dusseljee', 'bowien99@gmail.com', '994444444', 'Jr. Sanchez Cerro 4444', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(5, 'Kaï Fraussen', 'k.fraussen@student.maastrichtuniversity.nl', '995555555', 'Jr. Sanchez Cerro 5555', 'Lima')
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion, ciudad) VALUES(6, 'Morris Roman Colenbrander', '16088328@student.hhs.nl', '997777777', 'Jr. Sanchez Cerro 6666', 'Lima')
 
 INSERT INTO Order(ID_orden, ID_cliente, fecha)
 INSERT INTO Order(ID_orden, ID_cliente, fecha)
@@ -88,40 +93,72 @@ INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
 INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
 INSERT INTO Incluye(ID_orden, ID_producto, cantidad, monto_total)
 
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Canibal Camu Camu 275ml', '275', '6.50', 'Canazo macerado de Camu Camu de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(2, 'Canibal Camu Camu 700ml', '700', '22.9', 'Canazo macerado de Camu Camu de 700ml', '50');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(3, 'Canibal Aguaymanto 275ml', '275', '6.50', 'Canazo macerado de Aguaymanto de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(4, 'Canibal Aguaymanto 700ml', '700', '22.9', 'Canazo macerado de Aguaymanto de 700ml', '50');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(5, 'Canibal Chirimoya 275ml', '275', '6.50', 'Canazo macerado de Chirimoya de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(6, 'Canibal Chirimoya 700ml', '700', '22.9', 'Canazo macerado de Chirimoya de 700ml', '50');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(7, 'Canibal Sauco 275ml', '275', '6.50', 'Canazo macerado de Sauco de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(8, 'Canibal Sauco 700ml', '700', '22.9', 'Canazo macerado de Sauco de 700ml', '50');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(9, 'Canibal Lucuma 275ml', '275', '6.50', 'Canazo macerado de Lucuma de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(10, 'Canibal Lucuma 700ml', '700', '22.9', 'Canazo macerado de Lucuma de 700ml', '50');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(5, 'Canibal Granadilla 275ml', '275', '6.50', 'Canazo macerado de Granadilla de 275ml', '100');
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(6, 'Canibal Granadilla 700ml', '700', '22.9', 'Canazo macerado de Granadilla
- de 700ml', '50');
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Canibal Camu Camu 275ml', 275, 6.50, 'Canazo macerado de Camu Camu de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(2, 'Canibal Camu Camu 700ml', 700, 22.9, 'Canazo macerado de Camu Camu de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(3, 'Canibal Aguaymanto 275ml', 275, 6.50, 'Canazo macerado de Aguaymanto de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(4, 'Canibal Aguaymanto 700ml', 700, 22.9, 'Canazo macerado de Aguaymanto de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(5, 'Canibal Chirimoya 275ml', 275, 6.50, 'Canazo macerado de Chirimoya de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(6, 'Canibal Chirimoya 700ml', 700, 22.9, 'Canazo macerado de Chirimoya de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(7, 'Canibal Sauco 275ml', 275, 6.50, 'Canazo macerado de Sauco de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(8, 'Canibal Sauco 700ml', 700, 22.9, 'Canazo macerado de Sauco de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(9, 'Canibal Lucuma 275ml', 275, 6.50, 'Canazo macerado de Lucuma de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(10, 'Canibal Lucuma 700ml', 700, 22.9, 'Canazo macerado de Lucuma de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(11, 'Canibal Granadilla 275ml', 275, 6.50, 'Canazo macerado de Granadilla de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(12, 'Canibal Granadilla 700ml', 700, 22.9, 'Canazo macerado de Granadilla de 700ml', 50);
 
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
-INSERT INTO Convierte(ID_producto, ID_insumo, cantidad)
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(1, 1, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(2, 1, 2);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(3, 2, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(4, 2, 2);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(5, 3, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(6, 3, 3);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(7, 4, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(8, 4, 3);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(9, 5, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(10, 5, 4);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(11, 6, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(12, 6, 4);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(13, 7, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(14, 7, 5);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(15, 8, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(16, 8, 5);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(17, 9, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(18, 9, 6);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(19, 10, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(20, 10, 6);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(21, 11, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(22, 11, 7);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(23, 12, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(24, 12, 7);
 
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(1, 'Cañazo', 1);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(2, 'Camu Camu', 2);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(3, 'Aguaymanto', 3);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(4, 'Chirimoya', 4);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(5, 'Sauco', 5);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(6, 'Lucuma', 6);
-INSERT INTO Insumo(ID_insumo, nombre_insumo, ID_proveedor) VALUES(7, 'Granadilla', 7);
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(1, 'Cañazo', 1000000, 'ml');
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(2, 'Camu Camu', 100000, 'g');
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(3, 'Aguaymanto', 100000, 'g');
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(4, 'Chirimoya', 100000, 'g');
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(5, 'Sauco', 200000, 'g');
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(6, 'Lucuma', 100000, 'g' );
+INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(7, 'Granadilla', 100000, 'g');
 
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(1,1,1);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(2,1,2);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(3,1,3);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(4,2,4);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(5,2,5);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(6,3,6);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(7,3,7);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(8,4,4);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(9,4,5);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(10,5,6);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(11,5,7);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(12,6,4);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(13,6,5);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(14,7,6);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(15,7,7);
 
 INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(1, '229889@studenti.unimore.it', '999999999', 'Lima', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(2, '201709501@post.au.dk', '988888888', 'Lima', 'Av. Salaverry 2222', 'Camu Camu del Peru SAC', 'Emma Li Jiang Vestergaard');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(3, 'celia.aubert@ieseg.fr', '977777777', 'Lima', 'Av. Salaverry 3333', 'Aguaymanto Peru SAC', 'Sophie Alix');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(4, '229889@studenti.unimore.it', '966666666', 'Lima', 'Av. Salaverry 4444', 'Chirimoya del Peru SAC', 'Célia Maëlle Aubert');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(5, 'Salome.Morand@etu.unige.ch', '955555555', 'Lima', 'Av. Salaverry 5555', 'Sauco del Peru SAC', 'Salome Patricia Morand');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(6, 'kandexer@mail.uni-mannheim.de', '944444444', 'Lima', 'Av. Salaverry 6666', 'Lucuma del Peru SAC', 'Kai Christian Andexer');
-INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(7, 'martin.bompuis@edu.esce.fr', '933333333', 'Lima', 'Av. Salaverry 7777', 'Granadilla del Peru SAC', 'Martin Bompuis');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(2, '201709501@post.au.dk', '988888888', 'Lima', 'Av. Salaverry 2222', 'Cañito del Peru SAC', 'Emma Li Jiang Vestergaard');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(3, 'celia.aubert@ieseg.fr', '977777777', 'Lima', 'Av. Salaverry 3333', 'Cañazo Peru SAC', 'Sophie Alix');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(4, '229889@studenti.unimore.it', '966666666', 'Lima', 'Av. Salaverry 4444', 'Frutas del Peru SAC', 'Célia Maëlle Aubert');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(5, 'Salome.Morand@etu.unige.ch', '955555555', 'Lima', 'Av. Salaverry 5555', 'Mercader Peru SAC', 'Salome Patricia Morand');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(6, 'kandexer@mail.uni-mannheim.de', '944444444', 'Lima', 'Av. Salaverry 6666', 'Frutos del Peru SAC', 'Kai Christian Andexer');
+INSERT INTO Proveedor(ID_proveedor, email, telefono, ciudad, direccion, razon_social, nombre_representante) VALUES(7, 'martin.bompuis@edu.esce.fr', '933333333', 'Lima', 'Av. Salaverry 7777', 'Frutitas Peru SAC', 'Martin Bompuis');
