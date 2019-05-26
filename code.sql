@@ -30,8 +30,7 @@ stock int NOT NULL);
 CREATE TABLE Convierte(
 ID_convierte int NOT NULL,
 ID_producto int NOT NULL,
-ID_insumo int NOT NULL,
-cantidad int NOT NULL);
+ID_insumo int NOT NULL);
 
 CREATE TABLE Insumo(
 ID_insumo int NOT NULL,
@@ -94,19 +93,19 @@ INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(5, 5, 25/05/19, 3
 INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(6, 1, 25/05/19, 1950);
 INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(7, 6, 25/05/19, 91.6);
 
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(1, 1, 1, 5, 39)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(2, 2, 6, 2, 45.8)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(3, 2, 4, 2, 45.8)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(4, 3, 10, 10, 290)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(5, 4, 11, 20, 130)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(6, 5, 1, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(7, 6, 1, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(8, 6, 3, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(9, 6, 5, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(10, 6, 7, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(11, 6, 9, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(12, 6, 11, 50, 325)
-INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(13, 7, 8, 4, 91.6)
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(1, 1, 1, 5, 39);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(2, 2, 6, 2, 45.8);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(3, 2, 4, 2, 45.8);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(4, 3, 10, 10, 290);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(5, 4, 11, 20, 130);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(6, 5, 1, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(7, 6, 1, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(8, 6, 3, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(9, 6, 5, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(10, 6, 7, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(11, 6, 9, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(12, 6, 11, 50, 325);
+INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(13, 7, 8, 4, 91.6);
 
 
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Canibal Camu Camu 275ml', 275, 6.50, 'Canazo macerado de Camu Camu de 275ml', 100);
@@ -163,7 +162,7 @@ INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(5,2,5);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(6,3,6);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(7,3,7);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(8,4,4);
-INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(9,4,5);
+INSERT INTO Provee(ID_provee, ID_insumo, ID_;proveedor); VALUES(9,4,5);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(10,5,6);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(11,5,7);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor); VALUES(12,6,4);
