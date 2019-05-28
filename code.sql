@@ -89,18 +89,18 @@ INSERT INTO Proveedor(ID_proveedor, email, telefono, direccion, razon_social, no
 INSERT INTO Proveedor(ID_proveedor, email, telefono, direccion, razon_social, nombre_representante) VALUES(6, 'kandexer@mail.uni-mannheim.de', '944444444', 'Av. Salaverry 6666', 'Frutos del Peru SAC', 'Kai Christian Andexer');
 INSERT INTO Proveedor(ID_proveedor, email, telefono, direccion, razon_social, nombre_representante) VALUES(7, 'martin.bompuis@edu.esce.fr', '933333333', 'Av. Salaverry 7777', 'Frutitas Peru SAC', 'Martin Bompuis');
 
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Canibal Camu Camu 275ml', 275, 6.50, 'Canazo macerado de Camu Camu de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(2, 'Canibal Camu Camu 700ml', 700, 22.9, 'Canazo macerado de Camu Camu de 700ml', 50);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(3, 'Canibal Aguaymanto 275ml', 275, 6.50, 'Canazo macerado de Aguaymanto de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(4, 'Canibal Aguaymanto 700ml', 700, 22.9, 'Canazo macerado de Aguaymanto de 700ml', 50);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(5, 'Canibal Chirimoya 275ml', 275, 6.50, 'Canazo macerado de Chirimoya de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(6, 'Canibal Chirimoya 700ml', 700, 22.9, 'Canazo macerado de Chirimoya de 700ml', 50);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(7, 'Canibal Sauco 275ml', 275, 6.50, 'Canazo macerado de Sauco de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(8, 'Canibal Sauco 700ml', 700, 22.9, 'Canazo macerado de Sauco de 700ml', 50);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(9, 'Canibal Lucuma 275ml', 275, 6.50, 'Canazo macerado de Lucuma de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(10, 'Canibal Lucuma 700ml', 700, 22.9, 'Canazo macerado de Lucuma de 700ml', 50);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(11, 'Canibal Granadilla 275ml', 275, 6.50, 'Canazo macerado de Granadilla de 275ml', 100);
-INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(12, 'Canibal Granadilla 700ml', 700, 22.9, 'Canazo macerado de Granadilla de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(1, 'Cañibal Camu Camu 275ml', 275, 6.50, 'Cañazo macerado de Camu Camu de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(2, 'Cañibal Camu Camu 700ml', 700, 22.9, 'Cañazo macerado de Camu Camu de 700ml', 70);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(3, 'Cañibal Aguaymanto 275ml', 275, 6.50, 'Cañazo macerado de Aguaymanto de 275ml', 300);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(4, 'Cañibal Aguaymanto 700ml', 700, 22.9, 'Cañazo macerado de Aguaymanto de 700ml', 199);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(5, 'Cañibal Chirimoya 275ml', 275, 6.50, 'Cañazo macerado de Chirimoya de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(6, 'Cañibal Chirimoya 700ml', 700, 22.9, 'Cañazo macerado de Chirimoya de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(7, 'Cañibal Sauco 275ml', 275, 6.50, 'Cañazo macerado de Sauco de 275ml', 200);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(8, 'Cañibal Sauco 700ml', 700, 22.9, 'Cañazo macerado de Sauco de 700ml', 55);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(9, 'Cañibal Lucuma 275ml', 275, 6.50, 'Cañazo macerado de Lucuma de 275ml', 100);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(10, 'Cañibal Lucuma 700ml', 700, 22.9, 'Cañazo macerado de Lucuma de 700ml', 50);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(11, 'Cañibal Granadilla 275ml', 275, 6.50, 'Cañazo macerado de Granadilla de 275ml', 500);
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(12, 'Cañibal Granadilla 700ml', 700, 22.9, 'Cañazo macerado de Granadilla de 700ml', 60);
 
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(1, 'Cañazo', 1000000, 'ml');
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(2, 'Camu Camu', 100000, 'g');
@@ -175,3 +175,52 @@ INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(12,6,4);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(13,6,5);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(14,7,6);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(15,7,7);
+
+/*Tables*/
+SELECT *
+FROM Cliente
+
+SELECT *
+FROM Orden
+
+SELECT *
+FROM Incluye
+
+SELECT *
+FROM Producto
+
+SELECT *
+FROM Insumo
+
+SELECT *
+FROM Convierte
+
+SELECT *
+FROM Provee
+
+SELECT *
+FROM Proveedor
+
+/* Extractions & subsetting*/
+SELECT nombre_producto, precio
+FROM Producto
+WHERE volumen = 275; /* Se desea conocer el precio de todos los cañibal en presentacion de 275ml*/
+
+SELECT AVG(stock) AS "stock promedio"
+FROM Producto
+WHERE precio = 22.9; /* Stock promedio de los cañibal que cuestan 22.9*/
+
+SELECT nombre_producto, stock AS "stock original" ,  T1.stock - T2.cantidad AS "Stock disponible"
+FROM Producto T1
+INNER JOIN Incluye T2 ON T1.ID_producto = T2.ID_producto; /* Stock disponible despues de las ventas*/
+
+SELECT SUM(importe) AS "Ingresos netos", SUM(cantidad) AS "Cantidad total vendida", SUM(importe) / SUM(cantidad) AS "Rentabilidad marginal por unidad"
+FROM Orden T1
+INNER JOIN Incluye T2 ON T1.ID_orden = T2.ID_orden;
+
+SELECT nombre_producto, monto, cantidad
+FROM Incluye T1
+INNER JOIN Producto T2 on T1.ID_producto = T2.ID_producto
+INNER JOIN Orden T3 on  T1.ID_orden = T3.ID_orden ; /*resumen de ventas*/
+
+SELECT 
