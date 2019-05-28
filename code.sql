@@ -80,6 +80,10 @@ INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALU
 INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(4, 'Bowien Dusseljee', 'bowien99@gmail.com', '994444444', 'Jr. Sanchez Cerro 4444');
 INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(5, 'Kaï Fraussen', 'k.fraussen@student.maastrichtuniversity.nl', '995555555', 'Jr. Sanchez Cerro 5555');
 INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(6, 'Morris Roman Colenbrander', '16088328@student.hhs.nl', '997777777', 'Jr. Sanchez Cerro 6666');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(7, 'Natalia Laban', 'natalia.laban@gmail.com', '998888888', 'Jr. Sanchez Cerro 7777');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(8, 'Chiiko Tajima', 'chicopmf@gmail.com', '999111111', 'Jr. Sanchez Cerro 8888');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(9, 'Myrthe Bultman', 'm.bultman@student.maastrichtuniversity.nl', '999222222', 'Jr. Sanchez Cerro 9999');
+INSERT INTO Cliente(ID_cliente, nombre_cliente, email, telefono, direccion) VALUES(10, 'Dario Andreozzi ', 'd.andreozzi@student.maastrichtuniversity.nl', '999333333', 'Jr. Sanchez Cerro 1212');
 
 INSERT INTO Proveedor(ID_proveedor, email, telefono, direccion, razon_social, nombre_representante) VALUES(1, '229889@studenti.unimore.it', '999999999', 'Av. Salaverry 1111', 'Caña del Peru SAC', 'Hasnain Abbas');
 INSERT INTO Proveedor(ID_proveedor, email, telefono, direccion, razon_social, nombre_representante) VALUES(2, '201709501@post.au.dk', '988888888', 'Av. Salaverry 2222', 'Cañito del Peru SAC', 'Emma Li Jiang Vestergaard');
@@ -223,4 +227,4 @@ FROM Incluye T1
 INNER JOIN Producto T2 on T1.ID_producto = T2.ID_producto
 INNER JOIN Orden T3 on  T1.ID_orden = T3.ID_orden ; /*resumen de ventas*/
 
-SELECT 
+SELECT
