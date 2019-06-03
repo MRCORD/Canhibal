@@ -226,5 +226,3 @@ SELECT nombre_producto, monto, cantidad
 FROM Incluye T1
 INNER JOIN Producto T2 on T1.ID_producto = T2.ID_producto
 INNER JOIN Orden T3 on  T1.ID_orden = T3.ID_orden ; /*resumen de ventas*/
-
-SELECT
