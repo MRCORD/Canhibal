@@ -17,3 +17,4 @@ rows = []
 table = bs_html.find("table")
 for row in table.find_all('td'):
     rows.append(row.getText())
+    
