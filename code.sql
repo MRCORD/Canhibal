@@ -417,7 +417,7 @@ INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion,
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(56, 'Cañibal Tamarindo 700 ml', 700, 22.9, 'Cañazo macerado de Tamarindo de 700 ml', 162);
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(57, 'Cañibal Litchi 275 ml', 275, 6.50, 'Cañazo macerado de Litchi de 275 ml', 119);
 INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(58, 'Cañibal Litchi 700 ml', 700, 22.9, 'Cañazo macerado de Litchi de 700 ml', 288);
-
+INSERT INTO Producto(ID_producto, nombre_producto, volumen, precio, descripcion, stock) VALUES(59, 'Baby cañibal de Maracuya 100 ml', 700, 0, 'Cañazo macerado de Maracuya de 100 ml', 10000);
 
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(1, 'Cañazo', 1000000, 'ml');
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(2, 'Camu Camu', 100000, 'g');
@@ -590,7 +590,8 @@ INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(113, 57, 1);
 INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(114, 57, 30);
 INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(115, 58, 1);
 INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(116, 58, 30);
-
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(117, 59, 1);
+INSERT INTO Convierte(ID_convierte, ID_producto, ID_insumo) VALUES(118, 59, 19);
 
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(1,1,1);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(2,1,2);
