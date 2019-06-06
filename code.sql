@@ -450,13 +450,13 @@ INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(29, 'Tamarindo' , 1000000 ,'g');
 INSERT INTO Insumo(ID_insumo, nombre_insumo, stock_insumo, medida_unidad) VALUES(30, 'Litchi' , 1000000 ,'g');
 
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(1, 1, 25/05/19, 39);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(2, 2, 25/05/19, 91.6);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(3, 3, 25/05/19, 290);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(4, 4, 25/05/19, 130);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(5, 5, 25/05/19, 325);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(6, 1, 25/05/19, 1950);
-INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(7, 6, 25/05/19, 91.6);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(1, 1, 43610, 39);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(2, 20, 43611, 91.6);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(3, 3, 43612, 290);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(4, 43, 43617, 130);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(5, 51, 43618, 325);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(6, 16, 43619, 1950);
+INSERT INTO Orden(ID_orden, ID_cliente, fecha, importe) VALUES(7, 67, 43620, 91.6);
 
 
 INSERT INTO Incluye(ID_incluye, ID_orden, ID_producto, cantidad, monto) VALUES(1, 1, 1, 5, 39);
