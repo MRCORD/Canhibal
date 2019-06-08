@@ -8069,7 +8069,7 @@ INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(140, 30, 24);
 INSERT INTO Provee(ID_provee, ID_insumo, ID_proveedor) VALUES(141, 30, 22);
 
 
-
+/*Cambios de campos calculados*/
 
 
 UPDATE Incluye
