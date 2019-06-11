@@ -37,4 +37,24 @@ SELECT SUM(importe) AS "Ingresos netos", SUM(cantidad) AS "Cantidad total vendid
 FROM Orden T1
 INNER JOIN Incluye T2 ON T1.ID_orden = T2.ID_orden;
 
+--Union 
+SELECT ID_producto, SUM(cantidad) as 'ventas' INTO Cantven
+FROM Incluye T1
+INNER JOIN Orden T2 ON T1.ID_orden = T2.ID_orden
+GROUP BY ID_producto
+ORDER BY ID_producto 
+
+SELECT * 
+From Cantven
+order by ID_producto
+
+SELECT nombre_producto, stock AS "stock original" , ventas, T1.stock - T2.ventas AS "Stock_disponible"
+FROM Producto T1
+INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
+WHERE volumen = 275
+UNION
+SELECT nombre_producto, stock AS "stock original" , ventas,  T1.stock - T2.ventas AS "Stock_disponible"
+FROM Producto T1
+INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
+WHERE volumen = 700
 

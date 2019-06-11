@@ -8092,7 +8092,7 @@ WHERE volumen = 275
 
 UPDATE Producto 
 SET stock = 1500
-WHERE volumen = 275
+WHERE volumen = 700
 
 
 UPDATE Producto
