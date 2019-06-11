@@ -8086,6 +8086,15 @@ UPDATE Orden
 SET importe = subtotal
 FROM Orden T1 INNER JOIN Importes T2 ON T1.ID_orden = T2.ID_orden
 
+UPDATE Producto 
+SET stock = 2000
+WHERE volumen = 275
+
+UPDATE Producto 
+SET stock = 1500
+WHERE volumen = 275
+
+
 UPDATE Producto
 SET volumen = 100
 WHERE ID_producto = 59
