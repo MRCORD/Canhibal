@@ -14,10 +14,10 @@ FROM Orden
 WHERE fecha BETWEEN 43586 AND 43616;
 
 -- Ingresos generados por los productos mas vendidos
-/*SELECT ID_producto, SUM(cantidad) AS 'Cantidad_Total' INTO Sumatoria
+SELECT ID_producto, SUM(cantidad) AS 'Cantidad_Total' INTO Sumatoria
 FROM Incluye
 GROUP BY ID_producto
-ORDER BY ID_producto;*/
+ORDER BY ID_producto;
 
 SELECT nombre_producto, Cantidad_Total
 FROM Producto T1
@@ -36,3 +36,5 @@ ORDER BY fecha, nombre_cliente ASC
 SELECT SUM(importe) AS "Ingresos netos", SUM(cantidad) AS "Cantidad total vendida", SUM(importe) / SUM(cantidad) AS "Rentabilidad marginal por unidad"
 FROM Orden T1
 INNER JOIN Incluye T2 ON T1.ID_orden = T2.ID_orden;
+
+
