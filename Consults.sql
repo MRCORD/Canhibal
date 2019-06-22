@@ -58,3 +58,22 @@ FROM Producto T1
 INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
 WHERE volumen = 700
 
+SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Enero'
+FROM Orden 
+WHERE fecha BETWEEN 43466 AND 43496
+
+SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Febrero'
+FROM Orden 
+WHERE fecha BETWEEN 43497 AND 43524
+
+SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Marzo'
+FROM Orden 
+WHERE fecha BETWEEN 43525 AND 43555
+
+SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Abril'
+FROM Orden 
+WHERE fecha BETWEEN 43556 AND 43585
+
+SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Mayo'
+FROM Orden 
+WHERE fecha BETWEEN 43586 AND 43616
