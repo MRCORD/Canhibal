@@ -58,22 +58,32 @@ FROM Producto T1
 INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
 WHERE volumen = 700
 
-SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Enero'
+SELECT COUNT( DISTINCT ID_cliente) AS 'Totclientes' INTO CLIENTPROM
 FROM Orden 
 WHERE fecha BETWEEN 43466 AND 43496
-
-SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Febrero'
+UNION
+SELECT COUNT( DISTINCT ID_cliente) 
 FROM Orden 
 WHERE fecha BETWEEN 43497 AND 43524
-
-SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Marzo'
+UNION
+SELECT COUNT( DISTINCT ID_cliente) 
 FROM Orden 
 WHERE fecha BETWEEN 43525 AND 43555
-
-SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Abril'
+UNION
+SELECT COUNT( DISTINCT ID_cliente) 
 FROM Orden 
 WHERE fecha BETWEEN 43556 AND 43585
-
-SELECT COUNT( DISTINCT ID_cliente) AS 'Nro clientes Mayo'
+UNION
+SELECT COUNT( DISTINCT ID_cliente) 
 FROM Orden 
 WHERE fecha BETWEEN 43586 AND 43616
+
+SELECT AVG(Totclientes) as "AVGCL" into PROM1
+FROM CLIENTPROM T1
+
+SELECT COUNT(ID_cliente) as "Totcl" INTO SUM1
+from Cliente
+
+SELECT (AVGCL / Totcl) as "Ratio perm clientes" 
+from PROM1
+INNER JOIN SUM1 ON AVGCL = Totcl
