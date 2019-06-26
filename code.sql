@@ -8099,6 +8099,18 @@ UPDATE Producto
 SET volumen = 100
 WHERE ID_producto = 59
 
+SELECT ID_producto, SUM(monto) as "TOTAL" INTO INGRESOSXVENTAS
+FROM Incluye 
+GROUP BY ID_producto
+ORDER BY TOTAL DESC
+
+SELECT ID_producto, SUM(cantidad) as 'ventas' INTO Cantven
+FROM Incluye T1
+INNER JOIN Orden T2 ON T1.ID_orden = T2.ID_orden
+GROUP BY ID_producto
+ORDER BY ID_producto 
+
+
 
 /*Tables*/
 SELECT *
