@@ -1,9 +1,9 @@
-SELECT nombre_producto, stock AS "stock original" , ventas, T1.stock - T2.ventas AS "Stock_disponible"
+SELECT nombre_producto, stock AS "stock original" , ventas, (T1.stock - T2.ventas) AS "Stock_disponible", ((T2.ventas * 1.0)/ stock*1.0)  as "Rendimiento"
 FROM Producto T1
 INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
 WHERE volumen = 275
 UNION
-SELECT nombre_producto, stock AS "stock original" , ventas,  T1.stock - T2.ventas AS "Stock_disponible"
+SELECT nombre_producto, stock AS "stock original" , ventas,  (T1.stock - T2.ventas) AS "Stock_disponible", ((T2.ventas * 1.0)/ stock*1.0) as "Rendimiento"
 FROM Producto T1
 INNER JOIN Cantven T2 ON T1.ID_producto = T2.ID_producto
 WHERE volumen = 700;
